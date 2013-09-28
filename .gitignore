@@ -12,4 +12,4 @@ $RECYCLE.BIN/
 .DS_Store
 
 # my private file
-
+config.php
