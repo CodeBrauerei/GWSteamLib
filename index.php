@@ -15,7 +15,7 @@ foreach ($x['response']['games'] as $game) {
     $games_c++;
 }
 
-usort($data['response']['games'], function($a, $b) {
+usort($x['response']['games'], function($a, $b) {
     return strcmp($a['name'], $b['name']);
 });
 
