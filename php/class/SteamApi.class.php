@@ -3,7 +3,7 @@
 class SteamApi {
 	
 	function __construct() {
-		require './config.php';
+		
 	}
 
 	public function get_owned_games($steamid) {
