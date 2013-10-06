@@ -1,6 +1,7 @@
+
 {
 	"response": {
-		"game_count": 113,
+		"game_count": 121,
 		"games": [
 			{
 				"appid": 240,
@@ -67,7 +68,6 @@
 			{
 				"appid": 4000,
 				"name": "Garry's Mod",
-				"playtime_2weeks": 49,
 				"playtime_forever": 1408,
 				"img_icon_url": "d9101cbeddcc4ff06c7fa1936c3f381b0bbf2e92",
 				"img_logo_url": "dca12980667e32ab072d79f5dbe91884056a03a2",
@@ -179,7 +179,8 @@
 			{
 				"appid": 50130,
 				"name": "Mafia II",
-				"playtime_forever": 0,
+				"playtime_2weeks": 570,
+				"playtime_forever": 570,
 				"img_icon_url": "62f1f7324e520be067aec1ab06d1ec6fa56f25bd",
 				"img_logo_url": "31c60ba32d7ff5b53b5d2a5795b42077279f499a",
 				"has_community_visible_stats": true
@@ -219,7 +220,6 @@
 			{
 				"appid": 40800,
 				"name": "Super Meat Boy",
-				"playtime_2weeks": 5,
 				"playtime_forever": 88,
 				"img_icon_url": "64eec20c9375e7473b964f0d0bc41d19f03add3b",
 				"img_logo_url": "70f084857297d5fdd96d019db3a990d6d9ec64f1",
@@ -259,7 +259,8 @@
 			{
 				"appid": 105600,
 				"name": "Terraria",
-				"playtime_forever": 122,
+				"playtime_2weeks": 8,
+				"playtime_forever": 130,
 				"img_icon_url": "858961e95fbf869f136e1770d586e0caefd4cfac",
 				"img_logo_url": "e3f375e78ada9d2ec7ffa521fe1b0052d1d2bbb5"
 			},
@@ -309,6 +310,14 @@
 				"has_community_visible_stats": true
 			},
 			{
+				"appid": 113200,
+				"name": "The Binding of Isaac",
+				"playtime_forever": 0,
+				"img_icon_url": "383cf045ca20625db18f68ef5e95169012118b9e",
+				"img_logo_url": "d9a7ee7e07dffed1700cb8b3b9482105b88cc5b5",
+				"has_community_visible_stats": true
+			},
+			{
 				"appid": 48240,
 				"name": "Anno 2070",
 				"playtime_forever": 74,
@@ -334,7 +343,8 @@
 			{
 				"appid": 207650,
 				"name": "A Virus Named TOM",
-				"playtime_forever": 0,
+				"playtime_2weeks": 27,
+				"playtime_forever": 27,
 				"img_icon_url": "2bbbd2a7bfe9d85c568f652f2396dc8e468b2abb",
 				"img_logo_url": "d6491d7919f9da534d1695e6cde5c69fc5f0ec0c",
 				"has_community_visible_stats": true
@@ -404,7 +414,7 @@
 			{
 				"appid": 730,
 				"name": "Counter-Strike: Global Offensive",
-				"playtime_2weeks": 11,
+				"playtime_2weeks": 2,
 				"playtime_forever": 1530,
 				"img_icon_url": "69f7ebe2735c366c65c0b33dae00e12dc40edbe4",
 				"img_logo_url": "d0595ff02f5c79fd19b06f4d6165c3fda2372820",
@@ -436,7 +446,6 @@
 			{
 				"appid": 204360,
 				"name": "Castle Crashers",
-				"playtime_2weeks": 62,
 				"playtime_forever": 150,
 				"img_icon_url": "9b7625f9b70f103397fd0416fd92abb583db8659",
 				"img_logo_url": "793216ec14c639bdaf2f0119c8cc408b8e9ad7b1",
@@ -555,7 +564,8 @@
 			{
 				"appid": 200170,
 				"name": "Worms Revolution",
-				"playtime_forever": 64,
+				"playtime_2weeks": 23,
+				"playtime_forever": 88,
 				"img_icon_url": "15c154176bfa6bffabc7ebd31fd67de2485c6e1c",
 				"img_logo_url": "3808bfc4b577f8f69ec5239d96fb029c71daa22d",
 				"has_community_visible_stats": true
@@ -593,8 +603,8 @@
 			{
 				"appid": 223220,
 				"name": "Giana Sisters: Twisted Dreams",
-				"playtime_2weeks": 175,
-				"playtime_forever": 175,
+				"playtime_2weeks": 165,
+				"playtime_forever": 340,
 				"img_icon_url": "ac543243f2541e7a7728bf2165c5f3ebc57679fb",
 				"img_logo_url": "9c8baddbab7938b5b995843d36526a30bd12bb1d",
 				"has_community_visible_stats": true
@@ -626,7 +636,6 @@
 			{
 				"appid": 225140,
 				"name": "Duke Nukem 3D: Megaton Edition",
-				"playtime_2weeks": 60,
 				"playtime_forever": 60,
 				"img_icon_url": "da6e994d2cd797567f44cf80f816a909468e9393",
 				"img_logo_url": "31eab0a88ec76aadf9867087a6c5f59aa7f811d8",
@@ -667,8 +676,8 @@
 			{
 				"appid": 204080,
 				"name": "The Showdown Effect",
-				"playtime_2weeks": 107,
-				"playtime_forever": 107,
+				"playtime_2weeks": 104,
+				"playtime_forever": 122,
 				"img_icon_url": "16302d86b8b5af59f9c874464dbd64654c981c9e",
 				"img_logo_url": "5d74e29afa47d87ad8ab40c8e491135e984ff938",
 				"has_community_visible_stats": true
@@ -734,14 +743,15 @@
 				"appid": 219740,
 				"name": "Don't Starve",
 				"playtime_2weeks": 1,
-				"playtime_forever": 111,
+				"playtime_forever": 112,
 				"img_icon_url": "03fe647df40dccc4d19bf42a0185cd3e6b9f2953",
 				"img_logo_url": "46cbbc2fcb14eb0bbbbaebbdf0b1e0eaf6f4c646"
 			},
 			{
 				"appid": 224760,
 				"name": "FEZ",
-				"playtime_forever": 0,
+				"playtime_2weeks": 39,
+				"playtime_forever": 39,
 				"img_icon_url": "900590f739d69da4f50112669f5d949a2e6b9261",
 				"img_logo_url": "d2789dc5fb6bfee4d07cd3ec06985593fffd606c",
 				"has_community_visible_stats": true
@@ -750,7 +760,7 @@
 				"appid": 234710,
 				"name": "Poker Night 2",
 				"playtime_2weeks": 41,
-				"playtime_forever": 467,
+				"playtime_forever": 508,
 				"img_icon_url": "b3073e6f089447a9cf1eeabf7579600061546322",
 				"img_logo_url": "0b274bb5ade23104ce267a05ce7ac0f7aaa0248d",
 				"has_community_visible_stats": true
@@ -788,7 +798,6 @@
 			{
 				"appid": 210770,
 				"name": "Sanctum 2",
-				"playtime_2weeks": 229,
 				"playtime_forever": 229,
 				"img_icon_url": "4cdfa1d19be460374a111b718ce3a204f21ea1dc",
 				"img_logo_url": "333a8c65480bb85148bb3a185843a8520ae5d90f",
@@ -806,8 +815,8 @@
 			{
 				"appid": 206420,
 				"name": "Saints Row IV",
-				"playtime_2weeks": 128,
-				"playtime_forever": 846,
+				"playtime_2weeks": 337,
+				"playtime_forever": 1133,
 				"img_icon_url": "b5e8448a3e2ea31ddf3595addae4e1eee2375c0d",
 				"img_logo_url": "49d796621c286130a8ddeea918d9aae8c8441455",
 				"has_community_visible_stats": true
@@ -882,10 +891,66 @@
 			{
 				"appid": 25800,
 				"name": "Europa Universalis III",
-				"playtime_2weeks": 1,
-				"playtime_forever": 1,
+				"playtime_2weeks": 25,
+				"playtime_forever": 27,
 				"img_icon_url": "c0b8b4c7ffea1eac584af4cff08838c417b1ff1b",
 				"img_logo_url": "ceac4062b4c269c8af3b59dd390c7a9d7b5b340b"
+			},
+			{
+				"appid": 23490,
+				"name": "Tropico 3 - Steam Special Edition",
+				"playtime_forever": 0,
+				"img_icon_url": "ac98363870a4c1cbd18372843144dfaf7dfffbf7",
+				"img_logo_url": "c8e565a740d2e2c8a1a07548c875131eae72a1a7"
+			},
+			{
+				"appid": 91100,
+				"name": "SkyDrift",
+				"playtime_2weeks": 6,
+				"playtime_forever": 6,
+				"img_icon_url": "9844ef301bc33722dd6da7f6674f487f05861e2b",
+				"img_logo_url": "1d8b08c8f3395383a46ef7460ec285d0b2b1ef54",
+				"has_community_visible_stats": true
+			},
+			{
+				"appid": 207040,
+				"name": "Sine Mora",
+				"playtime_forever": 0,
+				"img_icon_url": "2578ad54b27e2b94fdad8912f64ce2540ba6e488",
+				"img_logo_url": "9597a3cf6d45182a3686102c7bdad7897207ea9c",
+				"has_community_visible_stats": true
+			},
+			{
+				"appid": 217690,
+				"name": "Anna - Extended Edition",
+				"playtime_forever": 0,
+				"img_icon_url": "3be85aeaf67e979786a6d11668d564a8e57a41a0",
+				"img_logo_url": "c7d2d87065728b276fabc69db36ec6f409c5d112",
+				"has_community_visible_stats": true
+			},
+			{
+				"appid": 45000,
+				"name": "Sol Survivor",
+				"playtime_forever": 0,
+				"img_icon_url": "95b2852358d831978323f393ea111d2c2cd6d276",
+				"img_logo_url": "f3c113ef32945f40cbdb838163753680c39ded03",
+				"has_community_visible_stats": true
+			},
+			{
+				"appid": 227800,
+				"name": "Retrovirus",
+				"playtime_forever": 0,
+				"img_icon_url": "7b64c06a0ba39b7f0f540f8e418e55dd52c2d4da",
+				"img_logo_url": "1ed60fedc85a787a0d979c991a2e501275bbd234",
+				"has_community_visible_stats": true
+			},
+			{
+				"appid": 200510,
+				"name": "XCOM: Enemy Unknown",
+				"playtime_forever": 0,
+				"img_icon_url": "48be2fee1d0d511b5c7313e1359beafd36ea92ed",
+				"img_logo_url": "eaa298d2b0d908b2c4f5370d2c8c59a8eff887c6",
+				"has_community_visible_stats": true
 			}
 		]
 		

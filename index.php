@@ -1,14 +1,12 @@
 <?php
-require 'config.php';
-
 const APPNAME = 'GWSteamLib';
 
-$api = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' . API_KEY . '&steamid=76561198051267973&include_appinfo=1&format=json';
+function __autoload($class) {
+    require_once 'class/' . $class . '.class.php';
+}
 
-//$data = file_get_contents($api);
-$data = file_get_contents('data/76561198051267973.json');
-$x    = json_decode($data, true);
-
+$api          = new SteamApi();
+$x            = $api->get_owned_games('76561198051267973');
 $playtime_ges = 0.0;
 $games_c      = 0;
 
@@ -16,6 +14,10 @@ foreach ($x['response']['games'] as $game) {
     $playtime_ges += $game['playtime_forever'];
     $games_c++;
 }
+
+usort($data['response']['games'], function($a, $b) {
+    return strcmp($a['name'], $b['name']);
+});
 
 ?>
 
@@ -25,7 +27,8 @@ foreach ($x['response']['games'] as $game) {
         <title><?= APPNAME ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" href="css/custom.css">
+        <link href="css/custom.css" rel="stylesheet" media="screen">
+        <link href="css/animations.css" rel="stylesheet" media="screen">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <!--[if lt IE 9]>
           <script src="../../assets/js/html5shiv.js"></script>
@@ -41,13 +44,19 @@ foreach ($x['response']['games'] as $game) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><?= APPNAME ?></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Bibliothek</a></li>
-                        <li><a href="#version">Version 0.1</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Suchen...">
+                            </div>
+                        </form>
+                    </ul>
+                    
                 </div><!--/.nav-collapse -->
             </div>
         </div>
@@ -56,7 +65,7 @@ foreach ($x['response']['games'] as $game) {
             <h1></h1>
             
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 expandOpen">
                     <h1><?= APPNAME ?> <small>the better steam libary</small></h1>
                 </div>
                 <div class="col-md-4">
@@ -75,6 +84,7 @@ foreach ($x['response']['games'] as $game) {
 
             <?php
             $row_i = 0;
+            $counter = 0;
             foreach ($x['response']['games'] as $game) {
                 if ($row_i == 0) {
                     echo '<div class="row mb30">';
@@ -88,14 +98,28 @@ foreach ($x['response']['games'] as $game) {
                         $playtime2_h = number_format(round($game['playtime_2weeks'] / 60, 1), 1, ',', '.');
                     }
 
+                    if (isset($playtime2_h)) {
+                        $p_pt_2w = '<br>letzten 2 Wochen:<br>' . $playtime2_h . ' Std.';
+                    } else {
+                        $p_pt_2w = '';
+                    }
+
                     echo '<div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="' . $imgurl . '">
-                                <b>' . $game['name'] . '</b>
-                                <br>
-                                (' . $playtime_h . ' Std.)
-                                <br>
-                                <a href="steam://rungameid/' . $game['appid'] . '">starten</a>
+                                <img src="' . $imgurl . '" class="img-rounded">
+                                <p class="gameinfo">
+                                    <b>' . $game['name'] . '</b> 
+                                    <a href="#" class="pull-right" data-toggle="tooltip" data-html="true" data-placement="right" id="tt'.$counter.'" title="Gesamt: ' . $playtime_h . ' Std.'.$p_pt_2w.'">Spielzeit</a>
+                                </p>
+                                <div class="btn-group btn-group-xs">
+                                    <a type="button" class="btn btn-default btn-xs" href="steam://rungameid/' . $game['appid'] . '">starten</a>
+                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/app/' . $game['appid'] . '">Shop</a>
+                                    <a type="button" class="btn btn-default btn-xs" href="http://steamcommunity.com/app/' . $game['appid'] . '">Hub</a>
+                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/dlc/' . $game['appid'] . '">DLCs</a>
+                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/news/?appids=' . $game['appid'] . '">News</a>
+                                    <a type="button" class="btn btn-default btn-xs" href="http://www.steamcardexchange.net/index.php?gamepage-appid-' . $game['appid'] . '">SCE</a>
+                                </div>
+                                
                             </div>
                         </div>';
                 }
@@ -105,11 +129,20 @@ foreach ($x['response']['games'] as $game) {
                     echo "</div>\n";
                 } else {
                     $row_i++;
-                }  
+                }
+
+                unset($playtime2_h);
+                $counter++;
             }
             ?>
         </div>
+        <div class="container" style="text-align: center;padding-top: 15px;padding-bottom: 5px;">
+            <a href="https://github.com/GabrielWanzek/GWSteamLib" class="btn btn-info btn-xs">GWSteamLib v0.1</a>
+        </div>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+            $(function () { $("[data-toggle='tooltip']").tooltip(); });
+        </script>
     </body>
 </html>

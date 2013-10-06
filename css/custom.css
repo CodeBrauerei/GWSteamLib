@@ -27,8 +27,6 @@ body {
 	background: #6588AB;
 }
 
-
-
 /* container */
 
 .container.ptop60 {
@@ -40,9 +38,15 @@ body {
 }
 
 .thumbnail {
-	text-align: center;
+	text-align: left;
 }
 
-.thumbnail img {
-	border-radius: 4px;
+.gameinfo {
+	margin: 6px 2px;
+	padding: 0;
+}
+
+.tooltip-inner {
+	min-width: 125px;
+	max-width: 150px;
 }
