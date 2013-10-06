@@ -15,6 +15,10 @@ body {
 	border-color: #415b76;
 }
 
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	background: #233241;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
 	background-color: #233241;
 }
@@ -25,6 +29,10 @@ body {
 
 .navbar-inverse:hover .navbar-nav>li>a:hover {
 	background: #6588AB;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	background-color: #415b76;
 }
 
 /* container */
@@ -49,4 +57,8 @@ body {
 .tooltip-inner {
 	min-width: 125px;
 	max-width: 150px;
+}
+
+.centered {
+	text-align: center;
 }

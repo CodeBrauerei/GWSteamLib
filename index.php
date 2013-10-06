@@ -21,7 +21,7 @@ usort($data['response']['games'], function($a, $b) {
     </head>
     <body>
         <?php $loader->get_menu(); ?>
-        <div class="container ptop60">
+        <div class="container ptop60 isotope">
 
             <h1></h1>
 
@@ -44,8 +44,9 @@ usort($data['response']['games'], function($a, $b) {
             </div>
 
             <?php
-            $row_i = 0;
-            $counter = 0;
+            $row_i     = 0;
+            $counter   = 0;
+            $err_count = 0;
             foreach ($data['response']['games'] as $game) {
                 if ($row_i == 0) {
                     echo '<div class="row mb30">';
@@ -65,45 +66,56 @@ usort($data['response']['games'], function($a, $b) {
                         $p_pt_2w = '';
                     }
 
+                    if ((int)$game['playtime_2weeks'] < 2 ) {
+                        $itemfilter = "";
+                    }
+
                     echo '<div class="col-md-3">
-                            <div class="thumbnail">
+                            <div class="thumbnail" id="item ">
                                 <img src="' . $imgurl . '" class="img-rounded">
                                 <p class="gameinfo">
                                     <b>' . $game['name'] . '</b> 
                                     <a href="#" class="pull-right" data-toggle="tooltip" data-html="true" data-placement="right" id="tt' . $counter . '" title="Gesamt: ' . $playtime_h . ' Std.' . $p_pt_2w . '">Spielzeit</a>
                                 </p>
-                                <div class="btn-group btn-group-xs">
-                                    <a type="button" class="btn btn-default btn-xs" href="steam://rungameid/' . $game['appid'] . '">starten</a>
-                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/app/' . $game['appid'] . '">Shop</a>
-                                    <a type="button" class="btn btn-default btn-xs" href="http://steamcommunity.com/app/' . $game['appid'] . '">Hub</a>
-                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/dlc/' . $game['appid'] . '">DLCs</a>
-                                    <a type="button" class="btn btn-default btn-xs" href="http://store.steampowered.com/news/?appids=' . $game['appid'] . '">News</a>
-                                    <a type="button" class="btn btn-default btn-xs" href="http://www.steamcardexchange.net/index.php?gamepage-appid-' . $game['appid'] . '">SCE</a>
+                                <div class="centered">
+                                    <div class="btn-group btn-group-xs">
+                                        <a type="button" class="btn btn-primary btn-xs" href="steam://rungameid/' . $game['appid'] . '">starten</a>
+                                        <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/app/' . $game['appid'] . '">Shop</a>
+                                        <a type="button" class="btn btn-primary btn-xs" href="http://steamcommunity.com/app/' . $game['appid'] . '">Hub</a>
+                                        <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/dlc/' . $game['appid'] . '">DLCs</a>
+                                        <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/news/?appids=' . $game['appid'] . '">News</a>
+                                        <a type="button" class="btn btn-primary btn-xs" href="http://www.steamcardexchange.net/index.php?gamepage-appid-' . $game['appid'] . '">SCE</a>
+                                    </div>
                                 </div>
-                                
                             </div>
                         </div>';
-                }
-
-                if ($row_i == 3) {
-                    $row_i = 0;
-                    echo "</div>\n";
+                
+                    if ($row_i == 3) {
+                        echo "</div><div class='clearfix'></div>\n";
+                        $row_i = 0;
+                    } else {
+                        $row_i++;
+                    }
                 } else {
-                    $row_i++;
-                }
+                    $err_count++;
+                }              
 
                 unset($playtime2_h);
                 $counter++;
             }
             ?>
+            <div class="clearfix"></div>
+            <?php
+                if ($err_count > 0) {
+                    echo '<br><div class="alert alert-danger">Von '.$err_count.' Spiel(en) konnten keine Daten gefunden werden.</div>';
+                }
+            ?>
         </div>
+
         <?php $loader->get_footer(); ?>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-            $(function() {
-                $("[data-toggle='tooltip']").tooltip();
-            });
-        </script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
