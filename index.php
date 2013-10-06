@@ -1,69 +1,30 @@
 <?php
-const APPNAME = 'GWSteamLib';
+        const APPNAME = 'GWSteamLib';
 
 function __autoload($class) {
-    require_once 'class/' . $class . '.class.php';
+    require_once 'php/class/' . $class . '.class.php';
 }
 
-$api          = new SteamApi();
-$x            = $api->get_owned_games('76561198051267973');
-$playtime_ges = 0.0;
-$games_c      = 0;
+$api = new SteamApi();
+$loader = new Loader();
+$data = $api->get_owned_games('76561198051267973');
 
-foreach ($x['response']['games'] as $game) {
-    $playtime_ges += $game['playtime_forever'];
-    $games_c++;
-}
-
-usort($x['response']['games'], function($a, $b) {
+usort($data['response']['games'], function($a, $b) {
     return strcmp($a['name'], $b['name']);
 });
-
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?= APPNAME ?></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/custom.css" rel="stylesheet" media="screen">
-        <link href="css/animations.css" rel="stylesheet" media="screen">
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <!--[if lt IE 9]>
-          <script src="../../assets/js/html5shiv.js"></script>
-          <script src="../../assets/js/respond.min.js"></script>
-        <![endif]-->
+        <?php $loader->get_head(); ?>
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Bibliothek</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Suchen...">
-                            </div>
-                        </form>
-                    </ul>
-                    
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
+        <?php $loader->get_menu(); ?>
         <div class="container ptop60">
 
             <h1></h1>
-            
+
             <div class="row">
                 <div class="col-md-8 expandOpen">
                     <h1><?= APPNAME ?> <small>the better steam libary</small></h1>
@@ -71,11 +32,11 @@ usort($x['response']['games'], function($a, $b) {
                 <div class="col-md-4">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <span class="badge"><?= $x['response']['game_count'] ?> Spiele</span>
+                            <span class="badge"><?= $api->get_game_count($data); ?> Spiele</span>
                             Spiele in der Bibliothek
                         </li>
                         <li class="list-group-item">
-                            <span class="badge"><?=number_format(round($playtime_ges / 60, 1), 1, ',', '.')?> Std.</span>
+                            <span class="badge"><?= $api->get_playtime_forever($data); ?></span>
                             Gesamtspielzeit
                         </li>
                     </ul>
@@ -85,7 +46,7 @@ usort($x['response']['games'], function($a, $b) {
             <?php
             $row_i = 0;
             $counter = 0;
-            foreach ($x['response']['games'] as $game) {
+            foreach ($data['response']['games'] as $game) {
                 if ($row_i == 0) {
                     echo '<div class="row mb30">';
                 }
@@ -109,7 +70,7 @@ usort($x['response']['games'], function($a, $b) {
                                 <img src="' . $imgurl . '" class="img-rounded">
                                 <p class="gameinfo">
                                     <b>' . $game['name'] . '</b> 
-                                    <a href="#" class="pull-right" data-toggle="tooltip" data-html="true" data-placement="right" id="tt'.$counter.'" title="Gesamt: ' . $playtime_h . ' Std.'.$p_pt_2w.'">Spielzeit</a>
+                                    <a href="#" class="pull-right" data-toggle="tooltip" data-html="true" data-placement="right" id="tt' . $counter . '" title="Gesamt: ' . $playtime_h . ' Std.' . $p_pt_2w . '">Spielzeit</a>
                                 </p>
                                 <div class="btn-group btn-group-xs">
                                     <a type="button" class="btn btn-default btn-xs" href="steam://rungameid/' . $game['appid'] . '">starten</a>
@@ -136,13 +97,13 @@ usort($x['response']['games'], function($a, $b) {
             }
             ?>
         </div>
-        <div class="container" style="text-align: center;padding-top: 15px;padding-bottom: 5px;">
-            <a href="https://github.com/GabrielWanzek/GWSteamLib" class="btn btn-info btn-xs">GWSteamLib v0.1</a>
-        </div>
+        <?php $loader->get_footer(); ?>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-            $(function () { $("[data-toggle='tooltip']").tooltip(); });
+            $(function() {
+                $("[data-toggle='tooltip']").tooltip();
+            });
         </script>
     </body>
 </html>

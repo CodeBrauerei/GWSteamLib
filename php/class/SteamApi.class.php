@@ -23,6 +23,26 @@ class SteamApi {
 		return json_decode($data, true);
 	}
 
+	public function get_playtime_forever($data) {
+		$playtime_forever = 0;
+		foreach ($data['response']['games'] as $game) {
+		    $playtime_forever += $game['playtime_forever'];
+		}
+
+		$formatted = number_format(round($playtime_forever / 60, 1), 1, ',', '.').' Stunden';
+
+		return $formatted;
+	}
+
+	public function get_game_count($data) {
+		return $data['response']['game_count'];
+	}
+
+	public function get_games() {
+		# code...
+	}
+
+
 }
 
 ?>
