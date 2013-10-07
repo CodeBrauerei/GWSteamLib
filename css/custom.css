@@ -5,7 +5,7 @@ body {
 	font-weight: 400 !important;
 }
 
-.navbar-brand, h1, h2, h3, h4, h5, h6 {
+.navbar-brand, h1 {
 	font-family: 'Special Elite', sans-serif;
 }
 
@@ -31,8 +31,9 @@ body {
 	background: #6588AB;
 }
 
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a.active {
 	background-color: #415b76;
+	color: #fff;
 }
 
 /* container */
@@ -61,4 +62,43 @@ body {
 
 .centered {
 	text-align: center;
+}
+
+/* hello page */
+
+.hello {
+	background: #222 url(../img/bg.jpg) top center no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.jumbotron {
+	background: #f0f0f0;
+	background: -moz-linear-gradient(top,  #f0f0f0 0%, #ccc 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#ccc));
+	background: -webkit-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: -o-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: -ms-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: linear-gradient(to bottom,  #f0f0f0 0%,#ccc 100%);
+}
+
+.jumbotron h1 small {
+	color: #666;
+}
+
+.jumbotron .form-control {
+	display: inline-block;
+	width: 35%;
+	min-width: 200px; 
+	height: 45px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    right: auto;
+    left: 50%;
+    width: 700px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }

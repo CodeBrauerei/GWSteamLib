@@ -30,16 +30,18 @@ $container.isotope({
 
 /* filtering */
 $('#filters a').click(function(){
+	$('#filters a').removeClass("active");
 	var selector = $(this).attr('data-filter');
+	$(this).addClass("active");
 	$container.isotope({ filter: selector, sortAscending : true });
 	return false;
 });
 
 /* sorting */
 $('#sort-by a').click(function(){
-  
+  $('#sort-by a').removeClass("active");
   var sortName = $(this).attr('href').slice(1);
-
+  $(this).addClass("active");
   if (sortName == 'playedtime') {
   	$container.isotope({ sortBy : sortName, sortAscending : false });
   } else {
@@ -48,6 +50,13 @@ $('#sort-by a').click(function(){
   
   return false;
 });
+
+/* reset filters */
+$('#reset_filter').click(function(){
+	$('#filters a').removeClass("active");
+	$('#sort-by a').removeClass("active");
+});
+
 
 /* on load reset layout to isotope */
 $(document).ready(function() {
