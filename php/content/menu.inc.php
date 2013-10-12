@@ -31,9 +31,10 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <p class="navbar-text">Spieler: <?php echo $player['personaname']?></p>
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Suchen..." tabindex="1">
+                                <input type="text" class="form-control" id="search" placeholder="Suchen..." tabindex="1">
                             </div>
                         </form>
                     </ul>

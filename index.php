@@ -17,10 +17,11 @@ $api    = new SteamApi();
 $loader = new Loader();
 
 $steamID64 = get_steamID64($_GET['profile']);
-$data      = $api->get_owned_games($steamID64);
+$games     = $api->get_owned_games($steamID64);
+$player    = $api->get_player_summaries($steamID64);
 
-if (is_array($data)) {
-    usort($data['response']['games'], function($a, $b) {
+if (is_array($games)) {
+    usort($games['response']['games'], function($a, $b) {
         return strcmp($a['name'], $b['name']);
     });
 }
@@ -33,21 +34,21 @@ if (is_array($data)) {
         <?php $loader->get_head(); ?>
     </head>
     <body>
-        <?php $loader->get_menu(); ?>
+        <?php $loader->get_menu($player); ?>
         <div class="container ptop60">
             <div class="row">
                 <div class="col-md-8 expandOpen">
                     <h1><?= APPNAME ?> <small>the better steam libary</small></h1>
                 </div>
                 <div class="col-md-4">
-                    <?php if (is_array($data)): ?>
+                    <?php if (is_array($games)): ?>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <span class="badge"><?= $api->get_game_count($data); ?> Spiele</span>
+                            <span class="badge"><?= $api->get_game_count($games); ?> Spiele</span>
                             Spiele in der Bibliothek
                         </li>
                         <li class="list-group-item">
-                            <span class="badge"><?= $api->get_playtime_forever($data); ?></span>
+                            <span class="badge"><?= $api->get_playtime_forever($games); ?></span>
                             Gesamtspielzeit
                         </li>
                     </ul>
@@ -58,11 +59,11 @@ if (is_array($data)) {
             <?php
             $err_count = 0;
 
-            if (is_array($data)) {
+            if (is_array($games)) {
                 $row_i     = 0;
                 $counter   = 0;
                 
-                foreach ($data['response']['games'] as $game) {
+                foreach ($games['response']['games'] as $game) {
                     
                     if (!empty($game['img_logo_url'])) {
 
@@ -102,11 +103,11 @@ if (is_array($data)) {
                                     <div class="centered">
                                         <div class="btn-group btn-group-xs">
                                             <a type="button" class="btn btn-primary btn-xs" href="steam://rungameid/' . $game['appid'] . '">starten</a>
-                                            <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/app/' . $game['appid'] . '">Shop</a>
-                                            <a type="button" class="btn btn-primary btn-xs" href="http://steamcommunity.com/app/' . $game['appid'] . '">Hub</a>
-                                            <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/dlc/' . $game['appid'] . '">DLCs</a>
-                                            <a type="button" class="btn btn-primary btn-xs" href="http://store.steampowered.com/news/?appids=' . $game['appid'] . '">News</a>
-                                            <a type="button" class="btn btn-primary btn-xs" href="http://www.steamcardexchange.net/index.php?gamepage-appid-' . $game['appid'] . '">SCE</a>
+                                            <a type="button" class="btn btn-primary btn-xs" target="_blank" href="http://store.steampowered.com/app/' . $game['appid'] . '">Shop</a>
+                                            <a type="button" class="btn btn-primary btn-xs" target="_blank" href="http://steamcommunity.com/app/' . $game['appid'] . '">Hub</a>
+                                            <a type="button" class="btn btn-primary btn-xs" target="_blank" href="http://store.steampowered.com/dlc/' . $game['appid'] . '">DLCs</a>
+                                            <a type="button" class="btn btn-primary btn-xs" target="_blank" href="http://store.steampowered.com/news/?appids=' . $game['appid'] . '">News</a>
+                                            <a type="button" class="btn btn-primary btn-xs" target="_blank" href="http://www.steamcardexchange.net/index.php?gamepage-appid-' . $game['appid'] . '">SCE</a>
                                         </div>
                                     </div>
                                 </div>

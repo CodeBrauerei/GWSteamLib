@@ -1,67 +1,69 @@
 <?php
 
 class SteamApi {
-	
-	function __construct() {
-		
-	}
 
-	public function get_owned_games($steamid) {
-		$lk = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' . API_KEY . '&steamid='.$steamid.'&include_appinfo=1&format=json';
-		echo $lk;
-		$data = file_get_contents($lk);
-		
-		if ($data) {
-			return json_decode($data, true);
-		} else {
-			return false;
-		}
+    function __construct() {
+        
+    }
 
-		return false;		
-	}
+    public function get_owned_games($steamid) {
+        $lk = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' . API_KEY . '&steamid=' . $steamid . '&include_appinfo=1&format=json';
+        $data = file_get_contents($lk);
 
-	public function get_player_achievements($steamid, $appid) {
-		$lk = 'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid='.$appid.'&key=' . API_KEY . '&steamid='.$steamid.'&l=german';
+        if ($data) {
+            return json_decode($data, true);
+        } else {
+            return false;
+        }
 
-		$data = file_get_contents($lk);
-		
-		if ($data) {
-			return json_decode($data, true);
-		} else {
-			return false;
-		}
+        return false;
+    }
 
-		return false;
-	}
+    public function get_player_achievements($steamid, $appid) {
+        $lk = 'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=' . $appid . '&key=' . API_KEY . '&steamid=' . $steamid . '&l=german';
 
-	public function get_playtime_forever($data) {
-		$playtime_forever = 0;
-		foreach ($data['response']['games'] as $game) {
-		    $playtime_forever += $game['playtime_forever'];
-		}
+        $data = file_get_contents($lk);
 
-		$formatted = number_format(round($playtime_forever / 60, 1), 1, ',', '.').' Stunden';
+        if ($data) {
+            return json_decode($data, true);
+        } else {
+            return false;
+        }
 
-		return $formatted;
-	}
+        return false;
+    }
 
-	public function get_game_count($data) {
-		return $data['response']['game_count'];
-	}
+    public function get_playtime_forever($data) {
+        $playtime_forever = 0;
+        foreach ($data['response']['games'] as $game) {
+            $playtime_forever += $game['playtime_forever'];
+        }
 
-	public function get_player_summaries($steamid) {
-		$lk = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . API_KEY . '&steamids='.$steamid;
+        $formatted = number_format(round($playtime_forever / 60, 1), 1, ',', '.') . ' Stunden';
 
-		$data = file_get_contents($lk);
-		
-		if ($data) {
-			return json_decode($data, true);
-		} else {
-			return false;
-		}
+        return $formatted;
+    }
 
-		return false;
-	}
+    public function get_game_count($data) {
+        return $data['response']['game_count'];
+    }
+
+    public function get_player_summaries($steamid) {
+        $lk = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . API_KEY . '&steamids=' . $steamid;
+
+        $data = file_get_contents($lk);
+
+        if ($data) {
+            $player = json_decode($data, true);
+            if (isset($player['response']['players'][0])) {
+                return $player['response']['players'][0];
+            }
+        } else {
+            return false;
+        }
+
+        return false;
+    }
 
 }
 

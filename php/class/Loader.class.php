@@ -10,7 +10,7 @@ class Loader {
 		require './php/content/head.inc.php';
 	}
 	
-	public function get_menu() {
+	public function get_menu($player) {
 		require './php/content/menu.inc.php';
 	}
 	
