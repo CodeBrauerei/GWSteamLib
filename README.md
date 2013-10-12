@@ -2,11 +2,11 @@
 
 a better steam libary with sorting and filter function
 
-[first demo here](http://gabrielw.de/steamlib/)
+**[first demo here](http://gabrielw.de/steamlib/) :new:**
 
 ## features
 
-* a game-lib cache system
+* a game-lib cache system 
 * sorting 
  * name
  * playtime
