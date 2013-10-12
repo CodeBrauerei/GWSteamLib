@@ -2,7 +2,7 @@
 
 a better steam libary with sorting and filter function
 
-will be published as webapp
+[first demo here](http://gabrielw.de/steamlib/)
 
 ## features
 
@@ -22,3 +22,5 @@ will be published as webapp
 * dynamic styles
 * easy 
 * fast
+
+_currently only in german - will be multilanguage_

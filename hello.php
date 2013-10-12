@@ -38,7 +38,7 @@ if (!defined('API_KEY')) {
                 </div>
                 <p>
                     <form action="index.php" method="get">
-                        <input type="text" name="profile" id="profile" class="form-control" placeholder="SteamID / CustomURL" >
+                        <input type="text" name="profile" id="profile" class="form-control" placeholder="SteamID / CustomURL" required>
                         <input type="submit" class="btn btn-lg btn-primary" value="Start &raquo;">
                     </form>
                 </p>
