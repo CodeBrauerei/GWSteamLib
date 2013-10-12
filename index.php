@@ -34,6 +34,9 @@ if (is_array($games)) {
         <?php $loader->get_head(); ?>
     </head>
     <body>
+        <?php if (isset($player['avatar'])):?>
+            <img src="<?php echo $player['avatar']?>" style="position: fixed;right: 9px;top: 9px;z-index:9999">
+        <?php endif;?>
         <?php $loader->get_menu($player); ?>
         <div class="container ptop60">
             <div class="row">
