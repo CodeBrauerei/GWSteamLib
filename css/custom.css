@@ -5,7 +5,7 @@ body {
 	font-weight: 400 !important;
 }
 
-.navbar-brand, h1 {
+h1 {
 	font-family: 'Special Elite', sans-serif;
 }
 
@@ -93,12 +93,23 @@ body {
 	height: 45px;
 }
 
-@media screen and (min-width: 768px) {
-  .modal-dialog {
-    right: auto;
-    left: 50%;
-    width: 700px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
+.avatar {
+	position: fixed;
+	width: 32px;
+	height: 32px;
+	right: 9px;
+	top: 9px;
+	z-index:9999;
 }
+
+@media screen and (min-width: 768px) {
+	#wfisid .modal-dialog {
+		right: auto;
+		left: 50%;
+		width: 700px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+
+

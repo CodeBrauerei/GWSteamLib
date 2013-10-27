@@ -8,6 +8,7 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse">
+                    <a data-toggle="modal" class="navbar-brand" href="#profile"><?php echo $player['personaname']?></a>
                     <ul class="nav navbar-nav">
                         <li id="filters"><a href="#" id="reset_filter" data-filter="*">Alles anzeigen</a></li>
                         <li class="dropdown">
@@ -31,7 +32,6 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <p class="navbar-text"><?php echo $player['personaname']?></p>
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="search" placeholder="Suchen..." tabindex="1">

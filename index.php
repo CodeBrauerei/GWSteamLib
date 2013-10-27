@@ -34,9 +34,6 @@ if (is_array($games)) {
         <?php $loader->get_head(); ?>
     </head>
     <body>
-        <?php if (isset($player['avatar'])):?>
-            <img src="<?php echo $player['avatar']?>" style="position: fixed;right: 9px;top: 9px;z-index:9999">
-        <?php endif;?>
         <?php $loader->get_menu($player); ?>
         <div class="container ptop60">
             <div class="row">
@@ -141,7 +138,32 @@ if (is_array($games)) {
                 }
             ?>
         </div>
-
+        <div class="modal fade" id="profile">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Spieler: <?php echo $player['personaname']?> <?php echo prettify_profilestate($player['personastate'])?></h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="<?php echo $player['avatarfull']?>" class="pull-right img-thumbnail">
+                        
+                        <b>Steam ID:</b><br>
+                        <?php echo $player['steamid']?>
+                        <br><br>
+                        <b>Zuletzt online:</b><br>
+                        <?php echo date('d.m.Y H:i',$player['lastlogoff'])?>
+                        <br><br>
+                        <b>Account erstellt:</b><br>
+                        <?php echo date('d.m.Y H:i',$player['timecreated'])?>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Schließen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php $loader->get_footer(); ?>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
