@@ -68,8 +68,8 @@ jQuery('document').ready(function($) {
 
 
     /* on load reset layout to isotope */
-    setTimeout(function() {
-        $('#reset_filter').click();
-    }, 1500);
+    $(window).scroll(function() {
+        $container.isotope('reLayout');
+    });
 });
 
