@@ -67,7 +67,7 @@ h1 {
 /* hello page */
 
 .hello {
-	background: #222 url(../img/bg.jpg) top center no-repeat;
+	background: #222 url(../img/bg.jpg) top center repeat;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
