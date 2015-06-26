@@ -36,11 +36,11 @@ function prettify_profilestate($state) {
     switch ($state) {
 		case 0: $pps = '<span class="label label-default">Offline</span>'; break;
 		case 1: $pps = '<span class="label label-primary">Online</span>'; break;
-		case 2: $pps = '<span class="label label-primary">Beschäftigt</span>'; break;
-		case 3: $pps = '<span class="label label-primary">Abwesend</span>'; break;
-		case 4: $pps = '<span class="label label-primary">Abwesend</span>'; break;
-		case 5: $pps = '<span class="label label-info">Bereit zum Handeln</span>'; break;
-		case 6: $pps = '<span class="label label-info">Bereit zum Spielen</span>'; break;
+		case 2: $pps = '<span class="label label-primary">Busy</span>'; break;
+		case 3: $pps = '<span class="label label-primary">Away</span>'; break;
+		case 4: $pps = '<span class="label label-primary">Away</span>'; break;
+		case 5: $pps = '<span class="label label-info">Ready to trade</span>'; break;
+		case 6: $pps = '<span class="label label-info">Ready to play</span>'; break;
     }
 
     return $pps;

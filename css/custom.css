@@ -1,12 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|Special+Elite);
-
 body {
-	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	font-family: San Francisco Display, Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-weight: 400 !important;
-}
-
-h1 {
-	font-family: 'Special Elite', sans-serif;
 }
 
 /* Navbar */
@@ -89,7 +83,7 @@ h1 {
 .jumbotron .form-control {
 	display: inline-block;
 	width: 35%;
-	min-width: 200px; 
+	min-width: 200px;
 	height: 45px;
 }
 
@@ -115,4 +109,3 @@ h1 {
 .modal-open, .modal-open .navbar-fixed-top {
 	margin-right: auto !important;
 }
-
