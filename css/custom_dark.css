@@ -1,0 +1,119 @@
+body {
+	font-family: San Francisco Display, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 400 !important;
+	background-color: #222;
+}
+
+/* Navbar */
+.navbar-inverse {
+	background-color: #415b76;
+	border-color: #415b76;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	background: #233241;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+	background-color: #233241;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+	color: #fff;
+}
+
+.navbar-inverse:hover .navbar-nav>li>a:hover {
+	background: #6588AB;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a.active {
+	background-color: #415b76;
+	color: #fff;
+}
+
+/* container */
+
+.container.ptop60 {
+	padding-top: 60px;
+}
+
+.row.mb30 {
+	margin-bottom: 30px;
+}
+
+.thumbnail {
+	text-align: left;
+}
+
+.gameinfo {
+	margin: 6px 2px;
+	padding: 0;
+}
+
+.tooltip-inner {
+	min-width: 125px;
+	max-width: 150px;
+}
+
+.centered {
+	text-align: center;
+}
+
+/* hello page */
+
+.hello {
+	background: #222 url(../img/bg.jpg) top center repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.jumbotron {
+	background: #f0f0f0;
+	background: -moz-linear-gradient(top,  #f0f0f0 0%, #ccc 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f0f0), color-stop(100%,#ccc));
+	background: -webkit-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: -o-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: -ms-linear-gradient(top,  #f0f0f0 0%,#ccc 100%);
+	background: linear-gradient(to bottom,  #f0f0f0 0%,#ccc 100%);
+}
+
+.jumbotron h1 small {
+	color: #666;
+}
+
+.jumbotron .form-control {
+	display: inline-block;
+	width: 35%;
+	min-width: 200px;
+	height: 45px;
+}
+
+.avatar {
+	position: fixed;
+	width: 32px;
+	height: 32px;
+	right: 9px;
+	top: 9px;
+	z-index:9999;
+}
+
+@media screen and (min-width: 768px) {
+	#wfisid .modal-dialog {
+		right: auto;
+		left: 50%;
+		width: 700px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+
+.modal-open, .modal-open .navbar-fixed-top {
+	margin-right: auto !important;
+}
+
+/* extra dark stuff */
+.thumbnail,.list-group-item, .form-control {
+	background-color: #333;
+	color: #fff;
+	border: 1px solid transparent;
+}

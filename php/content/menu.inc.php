@@ -37,7 +37,14 @@
                                 <input type="text" class="form-control" id="search" placeholder="Search" tabindex="1">
                             </div>
                         </form>
-                    </ul>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theme <b class="caret"></b></a>
+                          <ul class="dropdown-menu" id="themes">
+                            <li><a href="#" data-theme="light">Light (Default)</a></li>
+                            <li><a href="#" data-theme="dark">Dark</a></li>
+                          </ul>
+                        </li><!-- /.dropdown -->
+                        <li><a href="hello.php" id="logout">Logout</a></li>
 
                 </div><!--/.nav-collapse -->
             </div>

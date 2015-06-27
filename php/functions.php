@@ -17,7 +17,7 @@ function get_steamID64($profile) {
  * calc and format playtime_min to playtime in hours
  */
 function get_playtime_hours($min) {
-    return number_format(round($min / 60, 1), 1, ',', '.');
+    return number_format(round($min / 60, 1), 1, '.', '.');
 }
 
 /**

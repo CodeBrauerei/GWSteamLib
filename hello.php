@@ -13,7 +13,7 @@ if (!defined('API_KEY')) {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/custom_light.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -36,8 +36,8 @@ if (!defined('API_KEY')) {
                     </div>
                 </div>
                 <p>
-                    <form action="index.php" method="get">
-                        <input type="text" name="profile" id="profile" class="form-control" placeholder="SteamID / Custom URL" required>
+                    <form action="index.php" method="get" id="submitSteamID">
+                        <input type="text" id="profile" class="form-control" placeholder="SteamID / Custom URL" required>
                         <input type="submit" class="btn btn-lg btn-primary" value="Start &raquo;">
                     </form>
                 </p>
@@ -79,5 +79,18 @@ if (!defined('API_KEY')) {
         </div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js#2.0.2"></script>
+        <script>
+        /*
+        Add SteamID to cookie called "gwsl_profile"
+        */
+        $(function() {
+          $('#submitSteamID').on('submit', function(e) {
+            var profileInput = $('#profile').val();
+            Cookies.set("gwsl_profile", profileInput);
+            console.log(Cookies.get());
+          });
+        });
+        </script>
     </body>
 </html>

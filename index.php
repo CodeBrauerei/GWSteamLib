@@ -2,7 +2,7 @@
 
 /*error_reporting(0);*/
 
-if (!isset($_GET['profile'])) {
+if ($_COOKIE['gwsl_profile'] == " ") {
     header('Location: hello.php');
 }
 
@@ -16,7 +16,7 @@ function __autoload($class) {
 $api    = new SteamApi();
 $loader = new Loader();
 
-$steamID64 = get_steamID64($_GET['profile']);
+$steamID64 = get_steamID64($_COOKIE['gwsl_profile']);
 $games     = $api->get_owned_games($steamID64);
 $player    = $api->get_player_summaries($steamID64);
 
@@ -73,7 +73,7 @@ if (is_array($games)) {
 
                         if (isset($playtime2_h) && strlen($playtime2_h) !== 0) {
                             $played_2w = ' w2p';    // filter tag: "Played in last 2 weeks"
-                            $p_pt_2w   = '<br>letzten 2 Wochen:<br>' . $playtime2_h . ' Std.';  // for popover
+                            $p_pt_2w   = '<br>Last 2 weeks:<br>' . $playtime2_h . ' Hours';  // for popover
                             $pt2_h     = round($game['playtime_2weeks']/60, 0);                 // for sorting
                         } else {
                             $played_2w = ' w2np';   // filter tag: "Not played in last 2 weeks"
@@ -168,7 +168,9 @@ if (is_array($games)) {
         <?php $loader->get_footer(); ?>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+        <script src="//cdn.rawgit.com/js-cookie/js-cookie/master/src/js.cookie.js#2.0.2"></script>
+
         <script src="js/main.js"></script>
     </body>
 </html>

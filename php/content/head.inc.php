@@ -2,7 +2,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/custom.css" rel="stylesheet" media="screen">
+        <link href="css/custom_light.css" rel="stylesheet" media="screen" id="themecolour">
         <link href="css/animations.css" rel="stylesheet" media="screen">
         <link href="css/isotope.css" rel="stylesheet" media="screen">
         <!--[if lt IE 9]>
