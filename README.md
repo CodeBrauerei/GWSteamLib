@@ -1,26 +1,26 @@
 # GWSteamLib
 
-a better steam libary with sorting and filter function
+a better steam library with sorting and filter function
 
-**[first demo here](http://gabrielw.de/steamlib/) :new:**
+**[View demo (German)](http://gabrielw.de/steamlib/)**
 
 ## features
 
-* a game-lib cache system 
-* sorting 
+* a game-lib cache system
+* sorting
  * name
  * playtime
  * playtime last 2 weeks
 * view stats (e.g. archivements)
 * link to badges, backgrounds, emoticons and trading cards
-* link to shop, community hub, discusion, DLCs, guides and more...
+* link to shop, community hub, discussion, DLCs, guides and more...
 * see news for the game
 * start the game feature
 
 ## specs
 * responsive
 * dynamic styles
-* easy 
+* easy
 * fast
 
-_currently only in german - will be multilanguage_
+_available in German and English

@@ -3,7 +3,7 @@
 class SteamApi {
 
     function __construct() {
-        
+
     }
 
     public function get_owned_games($steamid) {
@@ -20,7 +20,7 @@ class SteamApi {
     }
 
     public function get_player_achievements($steamid, $appid) {
-        $lk = 'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=' . $appid . '&key=' . API_KEY . '&steamid=' . $steamid . '&l=german';
+        $lk = 'http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=' . $appid . '&key=' . API_KEY . '&steamid=' . $steamid . '&l=english';
 
         $data = file_get_contents($lk);
 
@@ -39,7 +39,7 @@ class SteamApi {
             $playtime_forever += $game['playtime_forever'];
         }
 
-        $formatted = number_format(round($playtime_forever / 60, 1), 1, ',', '.') . ' Stunden';
+        $formatted = number_format(round($playtime_forever / 60, 1), 1, ',', '.') . ' Hours';
 
         return $formatted;
     }

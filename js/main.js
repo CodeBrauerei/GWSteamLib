@@ -1,17 +1,26 @@
+/*
+  GWSteamLib Core v0.3.1-eng
+  Initial Release by Gabriel Wanzek, Nov 2013, with no license.
+  Edited by Dylan Myers, June 2015, under the ISC license.
+
+  This code handles Isotope filtering and searching.
+  It also handles image error handling and tooltips.
+  Finally it sets cookies for logging out, in and themes.
+
+*/
 var $container = $('#Grid');
 
 jQuery('document').ready(function($) {
 
-    /* init bootstrap tooltips */
+    // init bootstrap tooltips
     $(function() {
         $("[data-toggle='tooltip']").popover();
     });
 
-    /* on img 404 -> placeholder img */
+    // cover up images not found
     $("img").error(function() {
         $(this).attr("src", "img/img404.jpg");
     });
-
 
     /* init isotope */
     $container.isotope({
@@ -28,15 +37,9 @@ jQuery('document').ready(function($) {
         }
     });
 
-    $('#search').bind('keyup', function() {
-        //$(this).val().toLowerCase()
-        alert('Diese Funktion steht derzeit noch nicht zur Verfügung');
-        $('#search').val('');
 
-    });
-
-    /* filtering */
-    $('#filters a').click(function() {
+    // filtering
+    $('#filters a').click(function filterChooseiso() {
         $('#filters a').removeClass("active");
         var selector = $(this).attr('data-filter');
         $(this).addClass("active");
@@ -44,8 +47,31 @@ jQuery('document').ready(function($) {
         return false;
     });
 
-    /* sorting */
-    $('#sort-by a').click(function() {
+    // Theme selection
+    if(Cookies.get("gwsl_theme") == "dark") {
+      $('#themecolour').attr('href','css/custom_dark.css');
+    }
+    $('#themes a').click(function themeChoose() {
+      if($(this).attr("data-theme") == "dark") {
+        $('#themecolour').attr('href','css/custom_dark.css');
+        Cookies.set("gwsl_theme", "dark");
+      }
+      else if($(this).attr("data-theme") == "light") {
+        $('#themecolour').attr('href','css/custom_light.css');
+        Cookies.set("gwsl_theme", "light");
+      }
+      else {
+        $('#themecolour').attr('href','css/custom_light.css');
+      }
+    });
+
+    $('#logout').click(function logOut() {
+      Cookies.remove("gwsl_profile");
+      $(location).attr('href','hello.php');
+    });
+
+    // sorting
+    $('#sort-by a').click(function sortByiso() {
         $('#sort-by a').removeClass("active");
         var sortName = $(this).attr('href').slice(1);
         $(this).addClass("active");
@@ -59,7 +85,7 @@ jQuery('document').ready(function($) {
         return false;
     });
 
-    /* reset filters */
+    // reset filters
     $('#reset_filter').click(function() {
         $('#filters a').removeClass("active");
         $('#sort-by a').removeClass("active");
@@ -67,9 +93,8 @@ jQuery('document').ready(function($) {
     });
 
 
-    /* on load reset layout to isotope */
+    // on load reset layout to isotope
     $(window).scroll(function() {
         $container.isotope('reLayout');
     });
 });
-

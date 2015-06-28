@@ -1,6 +1,6 @@
 <?php
 
-	const APPNAME = 'GWSteamLib';
-	const API_KEY = "64CDF653E45DFF6144F74EE6501C43A5";
+	const APPNAME = 'GWSteamLib en';
+	const API_KEY = "0293C498F92695D1674E039D300B6CFE";
 
 ?>
