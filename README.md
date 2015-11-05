@@ -2,7 +2,7 @@
 
 a better steam library with sorting and filter function
 
-**[View demo (German)](http://gabrielw.de/steamlib/)**
+**[View demo (German)](http://dev.codebrauer.de/GWSteamLib/)**
 
 ## features
 
