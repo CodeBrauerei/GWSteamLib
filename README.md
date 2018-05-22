@@ -2,8 +2,6 @@
 
 a better steam library with sorting and filter function
 
-**[View demo (German)](http://dev.codebrauer.de/GWSteamLib/)**
-
 ## features
 
 * a game-lib cache system
